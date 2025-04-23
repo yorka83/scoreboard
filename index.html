@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scoreboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('fond.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 4em;
+            text-shadow: 3px 3px 8px #000;
+            margin-bottom: 0.2em;
+        }
+
+        .score {
+            font-size: 6em;
+            font-weight: bold;
+            margin: 0.2em 0;
+            text-shadow: 4px 4px 10px #000;
+        }
+
+        .divider {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            width: 30%;
+            margin: 1em auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>SCOREBOARD</h1>
+    <div id="scoreTop" class="score">0</div>
+    <div class="divider"></div>
+    <div id="scoreBottom" class="score">0</div>
+
+    <script>
+        let scoreTop = 0;
+        let scoreBottom = 0;
+
+        document.addEventListener("keydown", function(event) {
+            switch(event.key) {
+                case "+":
+                    scoreTop++;
+                    break;
+                case "-":
+                    scoreTop--;
+                    break;
+                case "*":
+                    scoreBottom++;
+                    break;
+                case "/":
+                    scoreBottom--;
+                    break;
+                case "r":
+                case "R":
+                    scoreTop = 0;
+                    scoreBottom = 0;
+                    break;
+            }
+            document.getElementById("scoreTop").textContent = scoreTop;
+            document.getElementById("scoreBottom").textContent = scoreBottom;
+        });
+    </script>
+</body>
+</html>
